@@ -1,0 +1,134 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<style>
+	.darkmode
+	{
+		background-color:#555;
+		color:white;
+		animation: darkmode 0.5s ease-in-out;	
+	}
+	
+	@keyframes darkmode 
+	{
+		0% { opacity: 0; }
+		100% { opacity: 1; }	
+	}
+
+</style></head>
+
+
+
+<body style="font-family: Montserrat medium;" class="">
+    
+		<h6 class="p-3 bg-dark text-warning text-center"> Basic calculator</h6>
+<br>
+    <div class="container-fluid">
+        <form name="calc">
+            <div class="form-row">
+                <div class="col">
+                    <div class="table-responsive ">
+                        <table class="table-sm m-auto col-8 col-md-6 col-lg-4">
+                            <tbody class="border">
+                                <tr class="">
+                                    <td colspan="4">
+									<small class="float-left col-2">Answer</small>
+									<span class="float-right col-10">
+									<input class="form-control" type="text" readonly="" name="answer" value=""></span>
+									</td>
+                                </tr>
+                                
+								<tr class="">
+                                    <td colspan="4">
+									<small class="float-left col-2">Steps</small>
+									<span class="float-right col-10">
+									<input class="form-control form-control-sm" type="text" readonly="" name="step" pattern="" value=""></span>
+									</td>
+                                </tr>
+
+                                <tr class="border">
+                                    <td class="w-25">
+									<button class="btn border-success text-success btn-block" type="button" value="+" name="badd" onclick="show(badd.value)"><i class="fa fa-plus"></i></button>
+									</td>
+                                    <td class="w-25">
+									<button class="btn border-success text-success btn-block" type="button" value="-" name="bmin" onclick="show(bmin.value)"><i class="fa fa-minus"></i></button>
+									</td>
+                                    <td class="w-25">
+									<button class="btn border-success text-success btn-block" type="button" value="*" name="bmul" onclick="show(bmul.value)"><i class="fa fa-times"></i></button>
+									</td>
+                                    <td class="w-25">
+									<button class="btn border-success text-success btn-block" type="button" value="/" name="bdiv" onclick="show(bdiv.value)"><i class="fa fa-divide"></i></button>
+									</td>
+                                </tr>
+								
+                                <tr>
+                                    <td class=""><button class="btn text-dark btn-block" type="button" value="7" name="b7" onclick="show(b7.value)">7</button></td>
+                                    <td class=""><button class="btn text-dark btn-block" type="button" value="8" name="b8" onclick="show(b8.value)">8</button></td>
+                                    <td class=""><button class="btn text-dark btn-block" type="button" value="9" name="b9" onclick="show(b9.value)">9</button></td>
+                                    <td class="w-25"><button class="btn border-secondary text-dark btn-block" type="button" onclick="swapbg()">
+									<i class="fas fa-adjust p-1"></i>
+									</button></td>
+                                </tr>
+								
+                                <tr>
+                                    <td><button class="btn text-dark btn-block" type="button" value="4" name="b4" onclick="show(b4.value)">4</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="5" name="b5" onclick="show(b5.value)">5</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="6" name="b6" onclick="show(b6.value)">6</button></td>
+									<td><button class="btn border-danger text-danger btn-block" type="button" value="no" name="bclr" onclick="location.reload();">CLR<br></button></td>
+
+								</tr>
+                                
+								<tr>
+                                    <td><button class="btn text-dark btn-block" type="button" value="1" name="b1" onclick="show(b1.value)">1</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="2" name="b2" onclick="show(b2.value)">2</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="3" name="b3" onclick="show(b3.value)">3</button></td>
+									<td rowspan="2" class="w-25">
+									<button type="button" class="btn btn-block border-info pt-4 pb-4 text-center text-info" name="bans" onclick="ans()">
+										<i class="fas fa-equals p-2"></i>
+									</button>
+									</td> 
+                                </tr>
+                                
+								<tr>
+                                    <td><button class="btn text-dark btn-block" type="button" value="0" name="b0" onclick="show(b0.value)">0</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="00" name="b00" onclick="show(b00.value)">00</button></td>
+                                    <td><button class="btn text-dark btn-block" type="button" value="." name="bpt" onclick="show(bpt.value)">•</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		function show(num)
+		{		
+			calc.step.value=calc.step.value	+ num;	
+		}
+		
+		function ans()
+		{	
+		 calc.answer.value=eval(calc.step.value);
+			if(calc.answer.value=="")
+			{
+			calc.answer.value="Check inputs.";
+			console.log("no ans: "+calc.answer.value);
+			}
+		}
+		
+		function swapbg()
+		{
+			var elem1=document.body;
+			elem1.classList.toggle("darkmode");
+		}	
+	</script>
+
+
+</body></html>
